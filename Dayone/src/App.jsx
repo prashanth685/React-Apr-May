@@ -1,5 +1,12 @@
 import React from "react";
+import New from "./Components/New";
 
-export function App() {
-  return <></>;
-}
+const App = () => {
+  return (
+    <>
+      <New name="Ajay" />
+    </>
+  );
+};
+
+export default App;
