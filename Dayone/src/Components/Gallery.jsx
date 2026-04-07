@@ -29,7 +29,22 @@ const Gallery = () => {
         </h2>
         <img src={sculpture.url} alt="" />
         <p>{sculpture.description}</p>
-        <button onClick={handleClick}>next</button>
+        <button
+          onClick={handleClick}
+          style={{
+            padding: "10px 20px",
+            border: "none",
+            outline: "none",
+            color: "#fff",
+            background: "#455",
+            borderRadius: "10px",
+            fontWeight: "400",
+            fontStyle: "oblique",
+            cursor: "pointer",
+          }}
+        >
+          next
+        </button>
         <span>page of {index}</span>
         <button onClick={handleprev}>previous</button>
       </div>
