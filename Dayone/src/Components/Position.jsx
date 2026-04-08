@@ -21,8 +21,8 @@ const Position = () => {
           backgroundColor: "red",
           borderRadius: "50%",
           transform: `translate(${position.x}px, ${position.y}px)`,
-          left: -10,
-          top: -10,
+          left: -20,
+          top: -20,
           width: 20,
           height: 20,
         }}
