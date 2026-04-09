@@ -37,15 +37,15 @@ const Faq = () => {
                 style={{ cursor: "pointer" }}
               />
             </span>
-            {ismodel && (
-              <div className="modal">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
-                impedit esse recusandae delectus voluptate perspiciatis
-                expedita, deserunt ratione culpa officia a suscipit earum
-                voluptas et enim ipsa est quos cumque.
-              </div>
-            )}
           </div>
+          {ismodel && (
+            <div className="modal">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab
+              impedit esse recusandae delectus voluptate perspiciatis expedita,
+              deserunt ratione culpa officia a suscipit earum voluptas et enim
+              ipsa est quos cumque.
+            </div>
+          )}
           <div className="one">
             <h3>Is the University recognised by UGC?</h3>
             <span>
