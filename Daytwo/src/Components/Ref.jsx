@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import Main from "./Main";
+import Model from "./Model";
 
 const Ref = () => {
   const ref = useRef(0);
@@ -10,8 +11,9 @@ const Ref = () => {
   };
   return (
     <>
-      <button onClick={handleclick}>click me</button>
+      {/* <button onClick={handleclick}>click me</button> */}
       <Main />
+      <Model />
     </>
   );
 };
