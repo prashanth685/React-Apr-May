@@ -10,7 +10,8 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(JSON.stringify(formdata));
+    // alert(JSON.stringify(formdata));
+    alert(JSON.stringify(formdata, null, 2));
   };
 
   const handleChange = (e) => {
