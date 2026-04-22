@@ -1,55 +1,69 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const Sidebar = () => {
-  const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+export default function Sidebar() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <>
-      <div className="flex justify-between items-center bg-amber-300 p-3 sm:hidden">
-        <h1 className="font-bold">Menu</h1>
-        <button onClick={() => setIsOpen(!isOpen)}>☰</button>
-      </div>
+    <div className="bg-gray-100 min-h-screen">
+      <nav className="bg-blue-600 text-white p-4">
+        <div className="flex justify-between items-center">
+          <h1 className="text-lg font-bold">MyApp</h1>
 
-      {/* Sidebar */}
-      <ul
-        className={`
-          bg-amber-300 font-bold gap-4 p-5
-          flex flex-col
-          fixed top-0 left-0 h-full w-2/3
-          transform ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          transition-transform duration-300
-          sm:static sm:translate-x-0 sm:flex-row sm:justify-center sm:w-full sm:h-auto
-        `}
-      >
-        <li
-          onClick={() => {
-            navigate("/home");
-            setIsOpen(false);
-          }}
-        >
-          Home
-        </li>
-        <li
-          onClick={() => {
-            navigate("/contact");
-            setIsOpen(false);
-          }}
-        >
-          Contact
-        </li>
-        <li
-          onClick={() => {
-            navigate("/services");
-            setIsOpen(false);
-          }}
-        >
-          Services
-        </li>
-      </ul>
-    </>
+          {/* Mobile button */}
+          <button className="md:hidden" onClick={() => setOpen(!open)}>
+            ☰
+          </button>
+
+          {/* Desktop menu */}
+          <ul className="hidden md:flex gap-6">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+
+        {/* Mobile menu */}
+        {open && (
+          <ul className="flex flex-col mt-4 gap-2 md:hidden">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        )}
+      </nav>
+
+      {/* 🧱 Hero */}
+      <section className="text-center p-6 md:p-10">
+        <h2 className="text-2xl md:text-4xl font-bold mb-4">
+          Mobile First Design
+        </h2>
+        <p className="text-gray-600 text-sm md:text-lg">
+          Build responsive layouts easily.
+        </p>
+      </section>
+
+      {/* 📦 Cards */}
+      <section className="p-4 md:p-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card title="Card 1" text="Responsive card layout" />
+          <Card title="Card 2" text="Works on all devices" />
+          <Card title="Card 3" text="Resize to see effect" />
+        </div>
+      </section>
+
+      {/* 🔻 Footer */}
+      <footer className="bg-gray-800 text-white text-center p-4 mt-6">
+        <p className="text-sm md:text-base">© 2026 MyApp</p>
+      </footer>
+    </div>
   );
-};
+}
 
-export default Sidebar;
+function Card({ title, text }) {
+  return (
+    <div className="bg-white rounded-xl shadow p-4 hover:scale-105 transition">
+      <h3 className="font-bold text-lg mb-2">{title}</h3>
+      <p className="text-gray-600 text-sm">{text}</p>
+    </div>
+  );
+}
